@@ -63,16 +63,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 document.addEventListener("DOMContentLoaded", function() {
-    // Aquí forzamos el modo oscuro por defecto al cargar la página
-    document.body.classList.add('dark-mode');
+    // Obtenemos el tema guardado en localStorage
+    let storedTheme = localStorage.getItem('theme');
     
-    // Si ya hay un tema guardado en localStorage, lo aplicamos
-    const storedTheme = localStorage.getItem('theme');
-    if (storedTheme) {
-        document.body.classList.remove('dark-mode'); // Elimina la clase de dark mode si se ha guardado otro tema
-        document.body.classList.add(storedTheme);
-    } else {
-        // Si no hay tema guardado, guardamos el modo oscuro como predeterminado
-        localStorage.setItem('theme', 'dark-mode');
+    // Si no hay un tema guardado, forzamos el modo oscuro
+    if (!storedTheme) {
+        localStorage.setItem('theme', 'dark-mode'); // Guardamos "dark-mode" como el valor por defecto
+        storedTheme = 'dark-mode'; // Establecemos el modo oscuro como el tema predeterminado
     }
+    
+    // Aplicamos el tema guardado o el predeterminado (modo oscuro)
+    document.body.classList.add(storedTheme);
+
+    console.log('Tema guardado en localStorage:', storedTheme);
+    console.log('Tema aplicado:', storedTheme === 'dark-mode' ? 'oscuro' : 'claro');
 });
