@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // Si no hay un tema guardado, forzamos el modo oscuro
     if (!storedTheme) {
-        localStorage.setItem('theme', 'dark-mode'); // Guardamos "dark-mode" como el valor por defecto
+        localStorage.setItem('theme', 'theme-dark'); // Guardamos "dark-mode" como el valor por defecto
         storedTheme = 'dark-mode'; // Establecemos el modo oscuro como el tema predeterminado
     }
     
@@ -76,5 +76,5 @@ document.addEventListener("DOMContentLoaded", function() {
     document.body.classList.add(storedTheme);
 
     console.log('Tema guardado en localStorage:', storedTheme);
-    console.log('Tema aplicado:', storedTheme === 'dark-mode' ? 'oscuro' : 'claro');
+    console.log('Tema aplicado:', storedTheme === 'theme-dark' ? 'oscuro' : 'claro');
 });
