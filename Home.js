@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Si no hay un tema guardado, forzamos el modo oscuro
     if (!storedTheme) {
         localStorage.setItem('theme', 'theme-dark'); // Guardamos "dark-mode" como el valor por defecto
-        storedTheme = 'dark-mode'; // Establecemos el modo oscuro como el tema predeterminado
+        storedTheme = 'theme-dark'; // Establecemos el modo oscuro como el tema predeterminado
     }
     
     // Aplicamos el tema guardado o el predeterminado (modo oscuro)
