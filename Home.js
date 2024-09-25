@@ -62,3 +62,17 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error('El switch de tema no se encontró.');
     }
 });
+document.addEventListener("DOMContentLoaded", function() {
+    // Aquí forzamos el modo oscuro por defecto al cargar la página
+    document.body.classList.add('dark-mode');
+    
+    // Si ya hay un tema guardado en localStorage, lo aplicamos
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme) {
+        document.body.classList.remove('dark-mode'); // Elimina la clase de dark mode si se ha guardado otro tema
+        document.body.classList.add(storedTheme);
+    } else {
+        // Si no hay tema guardado, guardamos el modo oscuro como predeterminado
+        localStorage.setItem('theme', 'dark-mode');
+    }
+});
